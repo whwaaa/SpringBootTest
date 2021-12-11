@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--<mapper namespace="com.jumaojiang.dao.JdbcMapper">-->
+
+<mapper namespace="com.jumaojiang.dao.TkUserMapper">
+    <select id="queryAll" resultType="tbUser">
+        select * from tb_user
+    </select>
+    
+    <select id="findByUser" resultType="tbUser">
+        select * from tb_user
+        <where>
+            <if test="userName != null">
+                and user_name LIKE concat("%",concat(#{userName},"%"))
+            </if>
+            <if test="age != null">
+                and age &lt;= #{age}
+            </if>
+        </where>
+    </select>
+</mapper>

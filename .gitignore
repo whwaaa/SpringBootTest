@@ -1,0 +1,3 @@
+# 项目排除路径
+/mybatis-plus-demo-quickstart/target/
+/SpringBootDemo/target/
